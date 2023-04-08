@@ -6,7 +6,7 @@ Date: 6th Mar. 2023
 
 import os
 from fastapi import FastAPI
-from typing import Literal
+from typing_extensions import Literal
 import pandas as pd
 import numpy as np
 import uvicorn
