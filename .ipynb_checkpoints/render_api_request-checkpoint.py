@@ -20,7 +20,7 @@ features = {
     "native_country": "United-States"
 }
 
-app_url = "https://render-deployment-v5l3.onrender.com:10000/predict_income"
+app_url = "https://render-deployment-v5l3.onrender.com/predict_income"
 
 r = requests.post(app_url, json=features)
 assert r.status_code == 200
