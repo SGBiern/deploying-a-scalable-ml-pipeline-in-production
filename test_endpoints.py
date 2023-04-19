@@ -12,7 +12,7 @@ def test_get_root():
     r = client.get('/')
     assert r.status_code == 200
     assert r.json() == {
-        'Hi': 'This app predicts weather income exceeds $50k/yr based on census data.'}
+        "Hi": "This app predicts whether income exceeds $50k/yr based on census data."}
     
     
 def test_post_predict_up():
