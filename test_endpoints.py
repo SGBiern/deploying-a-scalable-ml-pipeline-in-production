@@ -35,7 +35,7 @@ def test_post_predict_up():
                    )
     
     assert r.status_code == 200
-    assert r.json() == {'Income prediction': '<50K'}
+    assert r.json() == {'Income prediction': 'under 50k'}
     
 def test_post_predict_down():
     r = client.post('/predict_income', json={
@@ -57,4 +57,4 @@ def test_post_predict_down():
                    )
     
     assert r.status_code == 200
-    assert r.json() == {"Income prediction": "<=50K"}
+    assert r.json() == {"Income prediction": "under 50k"}

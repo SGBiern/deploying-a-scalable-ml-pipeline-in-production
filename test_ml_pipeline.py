@@ -28,24 +28,27 @@ cat_features = [
     "native-country",
 ]
 
-@pytest.fixture(name='data')
+@pytest.fixture(scope="module")
 def data():
     """
     Fixture will be utilized by the unit tests
     """
     yield pd.read_csv(DATA_PATH)
     
+@pytest.fixture(scope="module")
 def test_load_data(data):
     """ Check the data recieved. """
     assert isinstance(data, pd.DataFrame)
     assert data.shape[0] > 0
     assert data.shape[1] > 0
     
+@pytest.fixture(scope="module")
 def test_model():
     """ Check model type """
     model = src.utils.load_artifact(MODEL_PATH)
-    assert isinstance(mode, RandomForestClassifier)
+    assert isinstance(model, RandomForestClassifier)
     
+@pytest.fixture(scope="module")
 def test_process_data(data):
     """ Test the data split """
     train, _ = train_test_split(data, test_size=0.2)
