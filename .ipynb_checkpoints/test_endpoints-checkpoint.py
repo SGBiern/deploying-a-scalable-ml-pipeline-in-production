@@ -17,25 +17,25 @@ def test_get_root():
     
 def test_post_predict_up():
     r = client.post('/predict_income',  json={
-        "age": 37,
+        "age": 31,
         "workclass": "Private",
-        "fnlgt": 280464,
-        "education": "Some-college",
-        "education_num": 10,
-        "marital_status": "Married-civ-spouse",
-        "occupation": "Exec-managerial",
-        "relationship": "Husband",
-        "race": "Black",
-        "sex": "Male",
-        "capital_gain": 0,
+        "fnlgt": 45781,
+        "education": "Masters",
+        "education_num": 14,
+        "marital_status": "Never-married",
+        "occupation": "Prof-specialty",
+        "relationship": "Not-in-family",
+        "race": "White",
+        "sex":0,
+        "capital_gain": 14084,
         "capital_loss": 0,
-        "hours_per_week": 80,
+        "hours_per_week": 50,
         "native_country": "United-States"
     }
                    )
     
     assert r.status_code == 200
-    assert r.json() == {'Income prediction': 'under 50k'}
+    assert r.json() == {'Income prediction': 'over 50k'}
     
 def test_post_predict_down():
     r = client.post('/predict_income', json={
@@ -48,7 +48,7 @@ def test_post_predict_down():
         "occupation": "Adm-clerical",
         "relationship": "Not-in-family",
         "race": "White",
-        "sex": "Female",
+        "sex": 1,
         "capital_gain": 0,
         "capital_loss": 0,
         "hours_per_week": 40,
