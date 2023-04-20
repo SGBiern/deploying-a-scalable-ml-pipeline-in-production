@@ -20,12 +20,12 @@ MODEL_PATH = 'model/model.pkl'
 cat_features = [
     "workclass",
     "education",
-    "marital-status",
+    "marital_status",
     "occupation",
     "relationship",
     "race",
     "sex",
-    "native-country",
+    "native_country",
 ]
 
 @pytest.fixture(name="data")
